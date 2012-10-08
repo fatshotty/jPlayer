@@ -1032,6 +1032,9 @@
 			if((typeof media.buffered === "object") && (media.buffered.length > 0)) {
 				buf = (this.status.duration > 0) ? 100 * media.buffered.end(media.buffered.length-1) / this.status.duration : 100;
 				buffPr = (this.status.duration > 0) ? 100 * media.currentTime / media.buffered.end(media.buffered.length-1) : 0; // Duration conditional for iOS duration bug. ie., seekable.end is a NaN in that case.
+			} else {
+				buf = sp;
+				buffPr = cpr;
 			}
 
 			if(override) {
